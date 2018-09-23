@@ -4,7 +4,10 @@
  * @action creates class instance properties.
  * @param  {object} jsonData key-value of object will end up as property-value of class.
  **/
-function usingGenericInstance({object, jsonData}) {
+function usingGenericInstance({
+    object, // target object
+    jsonData // key-value pair - data to be populated
+}) {
     if(jsonData) {
         Object.entries(jsonData).forEach(([key, value]) => {
             object[key] = value
@@ -14,7 +17,6 @@ function usingGenericInstance({object, jsonData}) {
 }
 
 function usingThis({ jsonData, object = this }) {
-    // console.log(jsonData)
     usingGenericInstance({object, jsonData})
 }
 
